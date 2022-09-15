@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 class PlanController extends Controller
 {
     public function index(Plan $plan) {
-        return $plan->get();
+        return view('plans/index')->with(['plans' => $plan->getPaginateByLimit()]);
     }
 }
-
-

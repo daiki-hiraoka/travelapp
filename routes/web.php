@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/plans', 'PlanController@index');
+
+Route::get('/', 'PlanController@index');
+Route::get('/paginate', 'PlanController@pr');
