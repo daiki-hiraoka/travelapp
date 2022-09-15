@@ -11,8 +11,4 @@ class PlanController extends Controller
     public function index(Plan $plan) {
         return view('plans/index')->with(['plans' => $plan->getPaginateByLimit()]);
     }
-    
-    public function pr(Plan $plan) {
-        return $plan->getPaginateByLimit();
-    }
 }

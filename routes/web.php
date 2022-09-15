@@ -13,4 +13,3 @@
 
 
 Route::get('/', 'PlanController@index');
-Route::get('/paginate', 'PlanController@pr')
