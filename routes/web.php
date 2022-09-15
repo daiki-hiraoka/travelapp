@@ -13,3 +13,4 @@
 
 
 Route::get('/', 'PlanController@index');
+Route::get('/plans/{plan}', 'PlanController@show');
