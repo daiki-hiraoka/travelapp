@@ -11,7 +11,9 @@
         <div class='plans'>
             @foreach($plans as $plan)
                 <div class='plan'>
-                    <h2 class='title'>{{ $plan->title}}</h2>
+                    <h2 class='title'>
+                        <a href="/plans/{{ $plan->id }}">{{ $plan->title}}</a>
+                    </h2>
                     <p class='place'>{{ $plan->place}}</p>
                     <p class='people'>{{ $plan->people}}人</p>
                     <p class='spot'>{{ $plan->spot}}</p>
