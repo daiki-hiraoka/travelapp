@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 // modelのPlanをuseで宣言する
 use App\Plan;
-use Illuminate\Http\Request;
+use App\Http\Requests\PlanRequest;
 
 class PlanController extends Controller
 {
@@ -20,5 +20,15 @@ class PlanController extends Controller
      */
     public function show(Plan $plan) {
         return view('plans/show')->with(['plan' => $plan]);
+    }
+    
+    public function create() {
+        return view('plans/create');
+    }
+    
+    public function store(PlanRequest $request, Plan $plan) {
+        $input = $request['plan']; // createブレードでplan[]に入力した内容が配列として入っている
+        $plan->fill($input)->save();
+        return redirect('/plans/'.$plan->id);
     }
 }

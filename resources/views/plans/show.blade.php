@@ -15,12 +15,12 @@
         <div class="content">
             <div class="content__post">
                 <h3>本文</h3>
-                <p class='place'>旅行先：{{ $plan->place}}</p>
-                <p class='people'>人数：{{ $plan->people}}人</p>
-                <p class='spot'>おすすめスポット：{{ $plan->spot}}</p>
-                <p class='cost'>費用：{{ $plan->cost}}円</p>
-                <p class='date'>日数：{{ $plan->date}}日</p>
-                <p class='move'>交通手段：{{ $plan->move}}</p>
+                <p class='place'>旅行先：{{ $plan->place }}</p>
+                <p class='people'>人数：{{ $plan->people }}人</p>
+                <p class='spot'>おすすめスポット：{{ $plan->spot }}</p>
+                <p class='cost'>費用：{{ $plan->cost }}円</p>
+                <p class='date'>日数：{{ $plan->date }}日</p>
+                <p class='move'>交通手段：{{ $plan->move }}</p>
             </div>
         </div>
         <div class="back">
