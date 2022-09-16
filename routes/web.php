@@ -20,3 +20,5 @@ Route::get('/plans/{plan}', 'PlanController@show'); //　この処理を一番�
 Route::post('/plans', 'PlanController@store');
 
 Route::put('/plans/{plan}', 'PlanController@update');
+
+Route::delete('plans/{plan}', 'PlanController@delete');
