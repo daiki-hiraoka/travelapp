@@ -14,6 +14,9 @@
 
 Route::get('/', 'PlanController@index');
 Route::get('/plans/create', 'PlanController@create');
+Route::get('/plans/{plan}/edit','PlanController@edit');
 Route::get('/plans/{plan}', 'PlanController@show'); //　この処理を一番最後に書かないと{plan}にあらゆる値が入ってしまいshowを表示するようになる
 
 Route::post('/plans', 'PlanController@store');
+
+Route::put('/plans/{plan}', 'PlanController@update');

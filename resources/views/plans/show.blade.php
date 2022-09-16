@@ -23,6 +23,7 @@
                 <p class='move'>交通手段：{{ $plan->move }}</p>
             </div>
         </div>
+        <p class="edit">[<a href="/plans/{{ $plan->id }}/edit">編集</a>]</p>
         <div class="back">
             <a href="/">戻る</a>
         </div>

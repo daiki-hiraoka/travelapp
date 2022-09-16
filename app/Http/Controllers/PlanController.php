@@ -8,6 +8,7 @@ use App\Http\Requests\PlanRequest;
 
 class PlanController extends Controller
 {
+    
     public function index(Plan $plan) {
         return view('plans/index')->with(['plans' => $plan->getPaginateByLimit()]);
     }
@@ -28,6 +29,16 @@ class PlanController extends Controller
     
     public function store(PlanRequest $request, Plan $plan) {
         $input = $request['plan']; // createブレードでplan[]に入力した内容が配列として入っている
+        $plan->fill($input)->save();
+        return redirect('/plans/'.$plan->id);
+    }
+    
+    public function edit(Plan $plan) {
+        return view('plans/edit')->with(['plan' => $plan]);
+    }
+    
+    public function update(PlanRequest $request, Plan $plan) {
+        $input = $request['plan'];
         $plan->fill($input)->save();
         return redirect('/plans/'.$plan->id);
     }
