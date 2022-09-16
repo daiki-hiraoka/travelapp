@@ -42,4 +42,9 @@ class PlanController extends Controller
         $plan->fill($input)->save();
         return redirect('/plans/'.$plan->id);
     }
+    
+    public function delete(Plan $plan) {
+        $plan->delete();
+        return redirect('/');
+    }
 }
