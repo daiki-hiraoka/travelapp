@@ -18,7 +18,6 @@ Route::group(['middleware' => ['auth']],function() {
     Route::get('/plans/{plan}', 'PlanController@show'); //　この処理を一番最後に書かないと{plan}にあらゆる値が入ってしまいshowを表示するようになる
     
     Route::post('/plans', 'PlanController@store');
-    Route::post('/plans/image', 'PlanController@image');
     
     Route::put('/plans/{plan}', 'PlanController@update');
     
