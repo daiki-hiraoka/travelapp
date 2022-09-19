@@ -25,7 +25,6 @@ class PlanRequest extends FormRequest
     {
         return [
             'plan.title' => 'required|string|max:50',
-            'plan.user_id' => 'required|integer',
             'plan.place' => 'required|string|max:30',
             'plan.people' => 'required|integer',
             'plan.spot' => 'required|string|max:50',

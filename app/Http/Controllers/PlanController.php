@@ -29,6 +29,7 @@ class PlanController extends Controller
     
     public function store(PlanRequest $request, Plan $plan) {
         $input = $request['plan']; // createブレードでplan[]に入力した内容が配列として入っている
+        $input += ['user_id' => $request->user()->id];
         $plan->fill($input)->save();
         return redirect('/plans/'.$plan->id);
     }
@@ -39,6 +40,7 @@ class PlanController extends Controller
     
     public function update(PlanRequest $request, Plan $plan) {
         $input = $request['plan'];
+        $input += ['user_id' => $request->user()->id];
         $plan->fill($input)->save();
         return redirect('/plans/'.$plan->id);
     }

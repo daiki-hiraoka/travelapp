@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\User;
 
 class Plan extends Model
 {
@@ -20,7 +21,12 @@ class Plan extends Model
         'user_id',
     ];
     
+    // 複数のplanとuserのリレーション
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
+    
     public function getPaginateByLimit(int $limit_count = 2) {
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }
