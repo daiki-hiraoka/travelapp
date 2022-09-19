@@ -59,13 +59,6 @@
         
         <button type="submit">保存</button>
     </form>
-    
-    <!--<form action="/plans/image" method="post" enctype="multipart/form-data">-->
-    <!--    {{ csrf_field() }}-->
-        <!-- アップロードフォームの作成 -->
-    <!--    <input type="file" name="image">-->
-    <!--    <input type="submit" value="アップロード">-->
-    <!--</form>-->
       
     <div class="back">[<a href="/">戻る</a>]</div>
 @endsection
