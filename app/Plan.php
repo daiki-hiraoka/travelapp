@@ -19,6 +19,7 @@ class Plan extends Model
         'date',
         'move',
         'user_id',
+        'image',
     ];
     
     // 複数のplanとuserのリレーション
