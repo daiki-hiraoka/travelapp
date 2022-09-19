@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>旅行計画作成ページ</h1>
-    <form action="/plans" method="POST">
+    <form action="/plans" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="title">
             <h2>タイトル</h2>
@@ -52,7 +52,20 @@
             <p class='move_errors' style='color:red'>{{ $errors->first('plan.move') }}</p>
         </div>
         
+        <div class="image">
+            <h2>画像</h2>
+            <input type="file" name="image">
+        </div>
+        
         <button type="submit">保存</button>
     </form>
+    
+    <!--<form action="/plans/image" method="post" enctype="multipart/form-data">-->
+    <!--    {{ csrf_field() }}-->
+        <!-- アップロードフォームの作成 -->
+    <!--    <input type="file" name="image">-->
+    <!--    <input type="submit" value="アップロード">-->
+    <!--</form>-->
+      
     <div class="back">[<a href="/">戻る</a>]</div>
 @endsection
