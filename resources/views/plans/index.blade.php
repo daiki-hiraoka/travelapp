@@ -20,6 +20,7 @@
                 <p class='cost'>費用：{{ $plan->cost }}円</p>
                 <p class='date'>日数：{{ $plan->date }}日</p>
                 <p class='move'>移動手段：{{ $plan->move }}</p>
+                
                 <small>投稿者：{{ $plan->user->name }}</small>
                 <p></p>
             </div>

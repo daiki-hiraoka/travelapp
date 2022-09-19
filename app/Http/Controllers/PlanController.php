@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // modelのPlanをuseで宣言する
 use App\Plan;
 use App\Http\Requests\PlanRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PlanController extends Controller
 {
@@ -28,10 +29,23 @@ class PlanController extends Controller
     }
     
     public function store(PlanRequest $request, Plan $plan) {
+        // 入力内容をデータベースに保存
         $input = $request['plan']; // createブレードでplan[]に入力した内容が配列として入っている
         $input += ['user_id' => $request->user()->id];
+        $image = $request->file('image');
+        $path = Storage::disk('s3')->putFile('/', $image);
+        // $input->image = Storage::disk('s3')->url($path);
+        $input += ['image' => Storage::disk('s3')->url($path)];
         $plan->fill($input)->save();
         return redirect('/plans/'.$plan->id);
+    }
+    
+    public function image(PlanRequest $request, Plan $plan) {
+        $image = $request->file('image');
+        $path = Storage::disk('s3')->putFile('/', $image); // publicをつけることで一般公開したいという意思表示になる
+        $plan->image = Storage::disk('s3')->url($path);
+        $plan->save();
+        return redirect('plans/crete');
     }
     
     public function edit(Plan $plan) {
