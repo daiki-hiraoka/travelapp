@@ -9,12 +9,6 @@
             <input type="text" name="plan[title]" placeholder="タイトル" value = "{{ old('plan.title') }}"/>
             <p class='title_errors' style='color:red'>{{ $errors->first('plan.title') }}</p>
         </div>
-        
-        <!--<div class="user_id">-->
-        <!--    <h2>ユーザーID</h2>-->
-        <!--    <input type="text" name="plan[user_id]" placeholder="タイトル" value = "{{ old('plan.user_id') }}"/>-->
-        <!--    <p class='title_errors' style='color:red'>{{ $errors->first('plan.user_id') }}</p>-->
-        <!--</div>-->
 
         <div class="place">
             <h2>旅行先</h2>
@@ -60,5 +54,7 @@
         <button type="submit">保存</button>
     </form>
       
-    <div class="back">[<a href="/">戻る</a>]</div>
+    <div class="back">[<a href="/">戻る</a>]</div> 
+    <div id="map" style="height:500px">
+    </div>
 @endsection
