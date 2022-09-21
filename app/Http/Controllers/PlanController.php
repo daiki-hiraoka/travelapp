@@ -33,8 +33,10 @@ class PlanController extends Controller
         $input = $request['plan']; // createブレードでplan[]に入力した内容が配列として入っている
         $input += ['user_id' => $request->user()->id];
         $image = $request->file('image');
-        $path = Storage::disk('s3')->putFile('/', $image);
+        // S3に画像を保存
+        $path = Storage::disk('s3')->putFile('/', $image, 'public');
         $input += ['image' => Storage::disk('s3')->url($path)];
+        
         $plan->fill($input)->save();
         return redirect('/plans/'.$plan->id);
     }
