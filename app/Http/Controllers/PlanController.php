@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Plan;
 use App\Http\Requests\PlanRequest;
 use Illuminate\Support\Facades\Storage;
+use GuzzleHttp\Client;
 
 class PlanController extends Controller
 {
@@ -25,6 +26,8 @@ class PlanController extends Controller
     }
     
     public function create() {
+        $client = new Client();
+        
         return view('plans/create');
     }
 
