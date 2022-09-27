@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/result.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAC0TU0TAmiackUYfw9vbIMw3lKehV9n4w&callback=initMap" async defer>
+    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('services.googlemap.token') }}&callback=initMap" async defer>
     </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
