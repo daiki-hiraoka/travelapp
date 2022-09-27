@@ -26,8 +26,6 @@ class PlanController extends Controller
     }
     
     public function create() {
-        $client = new Client();
-        
         return view('plans/create');
     }
 
