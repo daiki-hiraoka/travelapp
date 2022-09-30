@@ -96,5 +96,6 @@
                 </div>
             </div>
         </div>
+        <hello-component></hello-component>
     </body>
 </html>

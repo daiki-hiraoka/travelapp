@@ -57,4 +57,13 @@ class PlanController extends Controller
         $plan->delete();
         return redirect('/');
     }
+    
+    public function hello(): string {
+        return 'Hello World';
+    }
+    
+    public function vue() {
+        return view('vue');
+    }
+    
 }
