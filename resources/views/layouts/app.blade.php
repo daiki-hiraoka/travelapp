@@ -14,6 +14,7 @@
     <!--<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('services.googlemap.token') }}&callback=initMap" async defer>-->
     <!--</script>-->
     <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
+     <script src="{{ asset('js/delete.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
