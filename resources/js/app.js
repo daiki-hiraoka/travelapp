@@ -6,7 +6,9 @@
 
 require('./bootstrap');
 
+
 window.Vue = require('vue');
+window.axios = require('axios');
 
 /**
  * The following block of code may be used to automatically register your
@@ -20,6 +22,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('top', require('./components/Top.vue').default);
+Vue.component("hello-component",  require("./components/HelloComponent.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
