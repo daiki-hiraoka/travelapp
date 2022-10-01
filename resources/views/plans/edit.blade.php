@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="title">編集画面</h1>
     <div class="content">
-        <form action="/plans/{{ $plan->id }}" method="POST">
+        <form action="/plans/{{ $plan->id }}" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- formのmethodにはPUTがないのでこのように定義する -->
             @method('PUT')
@@ -12,11 +12,6 @@
                 <h2>タイトル</h2>
                 <input type='text' name='plan[title]' value="{{ $plan->title }}">
             </div>
-            
-            <!--<div class='content__user_id'>-->
-            <!--    <h2>ユーザー名</h2>-->
-            <!--    <input type='text' name='plan[user_id]' value="{{ $plan->user_id }}">-->
-            <!--</div>-->
             
             <div class='content__place'>
                 <h2>旅行先</h2>
@@ -46,6 +41,11 @@
             <div class='content__move'>
                 <h2>交通手段</h2>
                 <input type='text' name='plan[move]' value="{{ $plan->move }}">
+            </div>
+            
+            <div class="image">
+                <h2>画像</h2>
+                <input type="file" name='image' value="{{ $plan->image }}">
             </div>
             
             <input type="submit" value="保存">
