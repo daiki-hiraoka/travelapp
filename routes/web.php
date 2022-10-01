@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth']],function() {
     Route::post('/plans', 'PlanController@store');
     
     Route::put('/plans/{plan}', 'PlanController@update');
+    Route::put('/users/{user}', 'UserController@update');
     
     Route::delete('plans/{plan}', 'PlanController@delete');
 });
