@@ -16,14 +16,15 @@ Route::group(['middleware' => ['auth']],function() {
     Route::get('/plans/create', 'PlanController@create');
     Route::get('/plans/{plan}/edit','PlanController@edit');
     Route::get('/vue', 'PlanController@vue');
-    Route::get('/users/{user}/edit', 'UserController@edit');
-    Route::get('/users/{user}', 'UserController@index');
+    Route::get('/profiles/{user}/edit', 'ProfileController@edit');
+    Route::get('/profiles/{user}', 'ProfileController@index');
     Route::get('/plans/{plan}', 'PlanController@show'); //　この処理を一番最後に書かないと{plan}にあらゆる値が入ってしまいshowを表示するようになる
+    Route::get('/users/{user}', 'UserController@index');
     
     Route::post('/plans', 'PlanController@store');
     
     Route::put('/plans/{plan}', 'PlanController@update');
-    Route::put('/users/{user}', 'UserController@update');
+    Route::put('/profiles/{user}', 'ProfileController@update');
     
     Route::delete('plans/{plan}', 'PlanController@delete');
 });

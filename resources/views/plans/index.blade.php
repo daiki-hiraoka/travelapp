@@ -24,7 +24,7 @@
                     <img src="{{ $plan->image }}">
                     <p class='image'>{{ $plan->image }}</p>
                 @endif
-                <small>投稿者：{{ $plan->user->name }}</small>
+                投稿者：<a href="/users/{{ $plan->user->id }}">{{ $plan->user->name }}</a>
                 <p></p>
             </div>
         @endforeach

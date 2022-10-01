@@ -2,13 +2,14 @@
 
 @section('content')
 <div class="content">
-    <form action="/users/{{ $user->id }}" method="POST" enctype="multipart/form-data">
+    <form action="/profiles/{{ $user->id }}" method="POST" enctype="multipart/form-data">
         @csrf
         <!-- formのmethodにはPUTがないのでこのように定義する -->
         @method('PUT')
         
         <div class="image">
             <h2>プロフィール画像</h2>
+            <img src="{{ $user->image }}">
             <input type="file" name="image" value="{{ $user->image }}">
         </div>
         
@@ -42,7 +43,7 @@
         
         <div class="conntent__comment">
             <h2>自己紹介文</h2>
-            <textarea name="user[comment]" placeholder="自己紹介文"{{ old('user.comment') }}></textarea>
+            <textarea name="user[comment]" placeholder="自己紹介文">{{ $user->comment}}</textarea>
         </div>
         
         <input type="submit" value="保存">

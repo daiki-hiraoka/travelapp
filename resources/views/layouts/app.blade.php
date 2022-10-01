@@ -63,7 +63,7 @@
                                     <a class="dropdown-item">旅行計画一覧</a>
                                     <a class="dropdown-item">いいねした投稿</a>
                                     <a class="dropdown-item">友達</a>
-                                    <a class="dropdown-item" href="/users/{{ Auth::user()->id }}">プロフィール</a>
+                                    <a class="dropdown-item" href="/profiles/{{ Auth::user()->id }}">プロフィール</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
