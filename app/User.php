@@ -48,4 +48,8 @@ class User extends Authenticatable
     public function plans() {
         return $this->hasMany('App\Plan');
     }
+    
+    public function getByUser(int $limit_count = 2) {
+        return $this->plans()->with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
 }
