@@ -59,11 +59,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item">旅行計画作成</a>
+                                    <a class="dropdown-item" href="/plans/create">旅行計画作成</a>
                                     <a class="dropdown-item">旅行計画一覧</a>
                                     <a class="dropdown-item">いいねした投稿</a>
                                     <a class="dropdown-item">友達</a>
-                                    <a class="dropdown-item">プロフィール</a>
+                                    <a class="dropdown-item" href="/users/{{ Auth::user()->id }}">プロフィール</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

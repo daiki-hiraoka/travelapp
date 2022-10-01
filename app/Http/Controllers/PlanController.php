@@ -49,6 +49,12 @@ class PlanController extends Controller
     public function update(PlanRequest $request, Plan $plan) {
         $input = $request['plan'];
         $input += ['user_id' => $request->user()->id];
+        $image = $request->file('image');
+        
+        // S3に画像を保存
+        $path = Storage::disk('s3')->putFile('/', $image, 'public');
+        $input += ['image' => Storage::disk('s3')->url($path)];
+        
         $plan->fill($input)->save();
         return redirect('/plans/'.$plan->id);
     }
