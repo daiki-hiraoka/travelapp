@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Plan;
+use App\Like;
 
 class User extends Authenticatable
 {
@@ -51,5 +52,29 @@ class User extends Authenticatable
     
     public function getByUser(int $limit_count = 2) {
         return $this->plans()->with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    
+    // いいねとの多対多のリレーション
+    public function likes() {
+        return $this->belongsToMany('App\Plan', 'likes', 'user_id', 'plan_id')->withTimestamps();
+    }
+    
+    public function islike($planId) {
+        return $this->likes()->where('plan_id',$planId)->exists();
+    }
+    
+    public function like($planId) {
+        if($this->islike($planId)) {
+            // いいねしていたら何もしない
+        } else {
+            $this->likes()->attach($planId);
+        }
+    }
+    
+    public function unlike($planId) {
+        if($this->islike($planId)) {
+        // いいねされていたら消す
+        $this->likes()->detach($planId);
+        }
     }
 }
