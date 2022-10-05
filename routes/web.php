@@ -22,6 +22,8 @@ Route::group(['middleware' => ['auth']],function() {
     Route::get('/users/{user}', 'UserController@index');
     
     Route::post('/plans', 'PlanController@store');
+    Route::post('/like/{planId}', 'LikeController@store');
+    Route::post('/unlike/{planId}', 'LikeController@destroy');
     
     Route::put('/plans/{plan}', 'PlanController@update');
     Route::put('/profiles/{user}', 'ProfileController@update');

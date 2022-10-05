@@ -24,8 +24,9 @@
                     <img src="{{ $plan->image }}">
                     <p class='image'>{{ $plan->image }}</p>
                 @endif
-                投稿者：<a href="/users/{{ $plan->user->id }}">{{ $plan->user->name }}</a>
-                <p></p>
+                投稿者：<a href="/users/{{ $plan->user->id }}">{{ $plan->user->name }}</a><br>
+                <!--<button onclick="like({{ $plan->id }})">いいね</button>-->
+                <like-component :plan='$plan'></like-component>
             </div>
         @endforeach
     </div>
