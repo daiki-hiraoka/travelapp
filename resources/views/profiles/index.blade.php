@@ -12,6 +12,7 @@
 @if($user->sex)
     <p class='sex'>性別：{{ $user->sex }}</p>
 @endif
+<p>{{ $user }}</p>
 @if($user->comment)
     <p class='comment'>自己紹介文：{{ $user->comment }}</p>
 @endif

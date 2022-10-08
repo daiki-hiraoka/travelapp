@@ -20,7 +20,7 @@
 
         <div class='content__sex'>
             <h2>性別</h2>
-            <select>
+            <select name='user[sex]'>
                 <option value="">性別を選択</option>
                 <option value="man" @if( old('user[sex]') === 'man' ) selected @endif>男</option>
                 <option value="woman" @if( old('user[sex]') === 'woman' ) selected @endif>女</option>

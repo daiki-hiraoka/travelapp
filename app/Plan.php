@@ -27,7 +27,20 @@ class Plan extends Model
         return $this->belongsTo('App\User');
     }
     
+    public function likes() {
+        return $this->hasMany('App\Like');
+    }
+    
     public function getPaginateByLimit(int $limit_count = 2) {
         return $this::with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    
+    
+    public function isLiked($user_id) {
+        return $this->likes()->where('user_id', $user_id)->exists();
+    }
+    
+    public function getLiked($user_id) {
+        return $this->likes()->where('user_id', $user_id)->get();
     }
 }

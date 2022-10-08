@@ -18,11 +18,14 @@ class ProfileController extends Controller
     
     function update(Request $request, User $user) {
         $input = $request['user'];
-        $image = $request->file('image');
+        // 画像が保存された時
+        if($request->file('image')){
+            $image = $request->file('image');
         
-        // S3に画像を保存
-        $path = Storage::disk('s3')->putFile('/', $image, 'public');
-        $input += ['image' => Storage::disk('s3')->url($path)];
+            // S3に画像を保存
+            $path = Storage::disk('s3')->putFile('/', $image, 'public');
+            $input += ['image' => Storage::disk('s3')->url($path)];
+        }
         
         $user->fill($input)->save();
         return redirect('/profiles/'.$user->id);

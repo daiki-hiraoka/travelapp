@@ -64,12 +64,4 @@ class PlanController extends Controller
         return redirect('/');
     }
     
-    public function hello(): string {
-        return 'Hello World';
-    }
-    
-    public function vue() {
-        return view('vue');
-    }
-    
 }
