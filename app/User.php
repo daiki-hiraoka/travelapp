@@ -58,23 +58,4 @@ class User extends Authenticatable
     public function likes() {
         return $this->belongsToMany('App\Plan', 'likes', 'user_id', 'plan_id')->withTimestamps();
     }
-    
-    public function islike($planId) {
-        return $this->likes()->where('plan_id',$planId)->exists();
-    }
-    
-    public function like($planId) {
-        if($this->islike($planId)) {
-            // いいねしていたら何もしない
-        } else {
-            $this->likes()->attach($planId);
-        }
-    }
-    
-    public function unlike($planId) {
-        if($this->islike($planId)) {
-        // いいねされていたら消す
-        $this->likes()->detach($planId);
-        }
-    }
 }
