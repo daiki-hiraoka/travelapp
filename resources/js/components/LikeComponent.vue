@@ -57,23 +57,3 @@
         },
     };
 </script>
-
-<!--<script>-->
-<!--    export default {-->
-<!--        props: ['plan_id'],-->
-<!--        data() {-->
-<!--            return {-->
-<!--                plan: {},-->
-<!--            };-->
-<!--        },-->
-<!--        methods: {-->
-<!--            like(planId) {-->
-<!--                axios.plan(`/like/${planId}`).then(({ data }) => {-->
-<!--                    console.log(data);-->
-<!--                }).catch(function(err) {-->
-<!--                    console.log(err);-->
-<!--                });-->
-<!--            },-->
-<!--        },-->
-<!--    };-->
-<!--</script>-->

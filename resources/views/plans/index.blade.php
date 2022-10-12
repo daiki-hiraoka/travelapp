@@ -14,18 +14,17 @@
                 <h2 class='title'>
                     <a href="/plans/{{ $plan->id }}">{{ $plan->title }}</a>
                 </h2>
-                <p class='place'>旅行先：{{ $plan->place }}</p>
-                <p class='people'>人数：{{ $plan->people }}人</p>
-                <p class='spot'>おすすめスポット：{{ $plan->spot }}</p>
-                <p class='cost'>費用：{{ $plan->cost }}円</p>
-                <p class='date'>日数：{{ $plan->date }}日</p>
-                <p class='move'>移動手段：{{ $plan->move }}</p>
+                <show-component :plan="{{ $plan }}"></show-component>
+                <!--<p class='place'>旅行先：{{ $plan->place }}</p>-->
+                <!--<p class='people'>人数：{{ $plan->people }}人</p>-->
+                <!--<p class='spot'>おすすめスポット：{{ $plan->spot }}</p>-->
+                <!--<p class='cost'>費用：{{ $plan->cost }}円</p>-->
+                <!--<p class='date'>日数：{{ $plan->date }}日</p>-->
+                <!--<p class='move'>移動手段：{{ $plan->move }}</p>-->
                 @if($plan->image)
-                    <img src="{{ $plan->image }}">
-                    <p class='image'>{{ $plan->image }}</p>
+                    <img src="{{ $plan->image }}"><br>
                 @endif
                 投稿者：<a href="/users/{{ $plan->user->id }}">{{ $plan->user->name }}</a><br>
-                <!--<button onclick="like({{ $plan->id }})">いいね</button>-->
                 <like-component :plan="{{ $plan }}"></like-component>
             </div>
         @endforeach
