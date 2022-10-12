@@ -10,10 +10,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <!--<script src="{{ asset('js/result.js') }}"></script>-->
-    <!--<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('services.googlemap.token') }}&callback=initMap" async defer>-->
-    <!--</script>-->
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
     <script src="{{ asset('js/delete.js') }}"></script>
     <script src="{{ asset('js/like.js') }}"></script> 
 
@@ -54,6 +50,14 @@
                                 </li>
                             @endif
                         @else
+                            <!--検索機能-->
+                            <form class="search">
+                                <div class="form-group">
+                                <input type="search" class="form-control" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
+                                </div>
+                                <input type="submit" value="検索" class="btn btn-info">
+                            </form>
+                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

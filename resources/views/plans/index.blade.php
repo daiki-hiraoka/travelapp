@@ -22,11 +22,9 @@
                 <!--<p class='date'>日数：{{ $plan->date }}日</p>-->
                 <!--<p class='move'>移動手段：{{ $plan->move }}</p>-->
                 @if($plan->image)
-                    <img src="{{ $plan->image }}">
-                    <p class='image'>{{ $plan->image }}</p>
+                    <img src="{{ $plan->image }}"><br>
                 @endif
                 投稿者：<a href="/users/{{ $plan->user->id }}">{{ $plan->user->name }}</a><br>
-                <!--<button onclick="like({{ $plan->id }})">いいね</button>-->
                 <like-component :plan="{{ $plan }}"></like-component>
             </div>
         @endforeach
