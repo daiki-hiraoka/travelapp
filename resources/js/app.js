@@ -25,6 +25,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('top', require('./components/Top.vue').default);
 Vue.component("hello-component",  require("./components/HelloComponent.vue").default);
 Vue.component('like-component', require('./components/LikeComponent.vue').default);
+Vue.component('show-component', require('./components/ShowComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

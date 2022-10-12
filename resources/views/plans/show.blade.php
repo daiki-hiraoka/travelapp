@@ -4,7 +4,6 @@
 <h1 class="title">
     {{ $plan->title }}
 </h1>
-
 <div class="content">
     <div class="content__plan">
         <p class='place'>旅行先：{{ $plan->place }}</p>
