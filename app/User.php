@@ -65,4 +65,23 @@ class User extends Authenticatable
     public function likes() {
         return $this->belongsToMany('App\Plan', 'likes', 'user_id', 'plan_id')->withTimestamps();
     }
+    
+    // フォロワー→フォロー
+    public function followUsers() {
+        return $this->hasMany('App\User');
+    }
+    
+    // フォロー→フォロワー
+    public function follows() {
+        return $this->hasMany('App\User');
+    }
+    
+    // フォローされているか
+    public function isFollowed($user_id) {
+        return $this->follows()->where('followed_user_id', $user_id)->exists();
+    }
+    
+    public function getFollowed($user_id) {
+        return $this->follows()->where('followed_user_id', $user_id)->get();
+    }
 }
