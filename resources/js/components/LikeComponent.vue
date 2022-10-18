@@ -46,7 +46,6 @@
             },
             like_count() {
                 const id = this.plan.id;
-                console.log(id);
                 const path = "/plans/" + id + "/counts";
                 axios.get(path).then(res => {
                     this.count = res.data.result;

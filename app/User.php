@@ -54,6 +54,13 @@ class User extends Authenticatable
         return $this->plans()->with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
+    public function getByUserLike($user_id, int $limit_count = 2) {
+        return $this
+            ->likes()
+            ->orderBy('updated_at', 'DESC')
+            ->paginate($limit_count);
+    }
+    
     // いいねとの多対多のリレーション
     public function likes() {
         return $this->belongsToMany('App\Plan', 'likes', 'user_id', 'plan_id')->withTimestamps();
