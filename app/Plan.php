@@ -32,18 +32,18 @@ class Plan extends Model
     }
     
     public function getPaginateByLimit(int $limit_count = 2) {
-        return $this::with('user')->orderBy('updated_at', 'DESC')->where(function ($query){
-            //検索機能
-            if($search = request('search')) {
-                $query->where('title', 'LIKE', "%{$search}%")
-                ->orWhere('place', 'LIKE', "%{$search}%")
-                ->orWhere('spot', 'LIKE', "%{$search}%");
-            }
-            
-        })->paginate($limit_count);
+        return $this::with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
-    
+    // 検索機能
+    public function getSearch($search) {
+        return $this::with('user')->orderBy('updated_at', 'DESC')
+            ->where('title', 'LIKE', "%{$search}%")
+            ->orWhere('place', 'LIKE', "%{$search}%")
+            ->orWhere('spot', 'LIKE', "%{$search}%")
+            ->paginate(2);
+    }
+
     public function isLiked($user_id) {
         return $this->likes()->where('user_id', $user_id)->exists();
     }

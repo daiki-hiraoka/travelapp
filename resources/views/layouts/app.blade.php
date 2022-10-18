@@ -51,9 +51,9 @@
                             @endif
                         @else
                             <!--検索機能-->
-                            <form class="search">
+                            <form class="search" action="/plans/search" method="GET">
                                 <div class="form-group">
-                                <input type="search" class="form-control" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
+                                    <input type="search" class="form-control" name="search"  value="{{ Session::get('search') }}" placeholder="キーワードを入力" aria-label="検索...">
                                 </div>
                                 <input type="submit" value="検索" class="btn btn-info">
                             </form>
