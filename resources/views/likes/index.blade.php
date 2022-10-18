@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>{{$plans[0]->user->name}}の投稿一覧</h1>
+    <h1>いいねした旅行計画一覧</h1>
     <p></p>
     <div class='plans'>
         @foreach($plans as $plan)

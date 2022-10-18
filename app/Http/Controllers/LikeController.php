@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Plan;
-use App\Use;
+use App\User;
 use App\Like;
 
 class LikeController extends Controller
 {
+    public function index(User $user) {
+        $user_id = $user->id;
+        return view('likes/index')->with(['plans' => $user->getByUserLike($user_id)]);
+    }
+    
     public function store(Plan $plan)
     {
                
