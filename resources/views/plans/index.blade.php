@@ -3,6 +3,7 @@
 @section('content')
     {{ Auth::user()->name }}<br>
     {{ Auth::user()->id }}
+    <p>{{ Session::get('search') }}</p>
     <h1>投稿された旅行計画一覧</h1>
     <button>
         <a href="/plans/create">計画作成</a>
@@ -30,6 +31,6 @@
         @endforeach
     </div>
     <div class='paginate'>
-        {{ $plans->links() }}
+        {{ $plans->appends(['search' => Session::get('search')])->links() }}
     </div>
 @endsection

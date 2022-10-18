@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth']],function() {
     Route::get('/profiles/{user}', 'ProfileController@index');
     Route::get('/plans/{plan}/check', 'LikeController@check')->name('like.check');
     Route::get('/plans/{plan}/counts', 'LikeController@counts');
+    Route::get('/plans/search', 'PlanController@search');
     Route::resource('/plans/{plan}/likes', 'LikeController', [
      'only' => ['store'],
     ]);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 // modelのPlanをuseで宣言する
 use App\Plan;
+use Illuminate\Http\Request;
 use App\Http\Requests\PlanRequest;
 use Illuminate\Support\Facades\Storage;
 use GuzzleHttp\Client;
@@ -11,7 +12,10 @@ use GuzzleHttp\Client;
 class PlanController extends Controller
 {
     
-    public function index(Plan $plan) {
+    public function index(Plan $plan, Request $request) {
+        if($request->session()->has('search')) {
+            $request->session()->forget('search');
+        }
         return view('plans/index')->with(['plans' => $plan->getPaginateByLimit()]);
     }
     
@@ -64,4 +68,11 @@ class PlanController extends Controller
         return redirect('/');
     }
     
+    public function search(Request $request, Plan $plan) {
+        $input = $request['search'];
+        if(isset($input)){
+            $request->session()->put('search', $input);
+        }
+        return view('plans/index')->with(['plans' => $plan->getSearch($input)]);
+    }
 }
