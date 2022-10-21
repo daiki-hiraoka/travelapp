@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Plan;
 use App\Like;
+use App\FollowUser;
 
 class User extends Authenticatable
 {
@@ -64,5 +65,20 @@ class User extends Authenticatable
     // いいねとの多対多のリレーション
     public function likes() {
         return $this->belongsToMany('App\Plan', 'likes', 'user_id', 'plan_id')->withTimestamps();
+    }
+    
+    // ユーザとの多対多のリレーション
+    public function follows() {
+        return $this->belongsToMany('App\User', 'follow_users', 'following_user_id','followed_user_id');
+    }
+    
+    // フォローされているか
+    public function isFollowed($user_id) {
+        return $this->follows()->where('followed_user_id', $user_id)->exists();
+    }
+    
+    # usersテーブルから取得してしまっている？
+    public function getFollowed($user_id) {
+        return $this->follows()->where('followed_user_id', $user_id)->get();
     }
 }
