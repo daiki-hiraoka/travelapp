@@ -26,6 +26,7 @@
                     <img src="{{ $plan->image }}"><br>
                 @endif
                 投稿者：<a href="/users/{{ $plan->user->id }}">{{ $plan->user->name }}</a><br>
+                <follow-component :user_id="{{ $plan->user->id }}"></follow-component>
                 <like-component :plan="{{ $plan }}"></like-component>
             </div>
         @endforeach

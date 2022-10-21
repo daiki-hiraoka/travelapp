@@ -51,6 +51,8 @@
             <input type="file" name="image">
         </div>
         
+        <!-- 経路検索機能 -->
+        
         <button type="submit">保存</button>
     </form>
       

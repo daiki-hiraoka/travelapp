@@ -21,14 +21,15 @@ Route::group(['middleware' => ['auth']],function() {
     Route::get('/plans/{plan}/counts', 'LikeController@counts');
     Route::get('/plans/search', 'PlanController@search');
     Route::get('plans/{user}/likes', 'LikeController@index');
-    Route::resource('/plans/{plan}/likes', 'LikeController', [
-     'only' => ['store'],
-    ]);
-    Route::get('/plans/{plan}', 'PlanController@show'); //　この処理を一番最後に書かないと{plan}にあらゆる値が入ってしまいshowを表示するようになる
+    Route::get('/plans/{plan}', 'PlanController@show');//　この処理を一番最後に書かないと{plan}にあらゆる値が入ってしまいshowを表示するようになる
+    Route::get('/users/{user}/followcheck', 'FollowUserController@check');
+    
     Route::get('/users/{user}', 'UserController@index');
     
     
     Route::post('/plans', 'PlanController@store');
+    Route::post('/plans/{plan}/likes', 'LikeController@store');
+    Route::post('/users/{user}/follow', 'FollowUserController@store');
     Route::post('/like/{planId}', 'LikeController@store');
     Route::post('/unlike/{planId}', 'LikeController@destroy');
     
