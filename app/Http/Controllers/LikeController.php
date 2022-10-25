@@ -44,13 +44,11 @@ class LikeController extends Controller
     
     public function check(Plan $plan) {
         $count = $plan->isLiked(Auth::id());
-        // \Log::debug($count);
         return response()->json(['result' => $count], 200);
     }
     
     public function counts(Plan $plan) {
         $count = $plan->likes()->count();
-        \Log::debug($count . 'count');
         return response()->json(['result' => $count], 200);
     }
 }
