@@ -33,4 +33,8 @@ return [
     'googlemap' => [
         'token' => env('GOOGLE_MAPS_ACCESS_TOKEN'),
     ],
+    
+    'ekispert' => [
+        'token' => env('EKISPERT_ACCESS_TOKEN'),
+    ],
 ];
