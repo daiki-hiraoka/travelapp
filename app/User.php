@@ -72,13 +72,8 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'follow_users', 'following_user_id','followed_user_id');
     }
     
-    // フォローされているか
-    public function isFollowed($user_id) {
-        return $this->follows()->where('followed_user_id', $user_id)->exists();
-    }
-    
-    # usersテーブルから取得してしまっている？
-    public function getFollowed($user_id) {
-        return $this->follows()->where('followed_user_id', $user_id)->get();
+    // ユーザとの多対多のリレーション
+    public function followers() {
+        return $this->belongsToMany('App\User', 'follow_users', 'followed_user_id','following_user_id');
     }
 }

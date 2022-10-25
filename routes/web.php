@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth']],function() {
     
     Route::post('/plans', 'PlanController@store');
     Route::post('/plans/{plan}/likes', 'LikeController@store');
-    Route::post('/users/{user}/follow', 'FollowUserController@store');
+    Route::post('/users/{user}/follow', 'FollowUserController@follow');
     Route::post('/like/{planId}', 'LikeController@store');
     Route::post('/unlike/{planId}', 'LikeController@destroy');
     

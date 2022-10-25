@@ -16,5 +16,11 @@
     <p class='comment'>自己紹介文：{{ $user->comment }}</p>
 @endif
 
+
+<p>フォロー数：{{ $following_count }}</p>
+<p>フォロワー数：{{ $followed_count }}</p>
+
+<follow-component :user_id="{{ $user->id }}"></follow-component>
+
 <p class="edit">[<a href="/profiles/{{ $user->id }}/edit">編集</a>]</p>
 @endsection
