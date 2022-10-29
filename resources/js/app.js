@@ -27,6 +27,7 @@ Vue.component("hello-component",  require("./components/HelloComponent.vue").def
 Vue.component('like-component', require('./components/LikeComponent.vue').default);
 Vue.component('show-component', require('./components/ShowComponent.vue').default);
 Vue.component('follow-component', require('./components/FollowComponent.vue').default);
+Vue.component('ekispert-component', require('./components/EkispertComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

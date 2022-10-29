@@ -55,7 +55,8 @@
         
         <button type="submit">保存</button>
     </form>
-      
+    
+    <ekispert-component></ekispert-component>
     <div class="back">[<a href="/">戻る</a>]</div> 
     <div id="map" style="height:500px">
     </div>
