@@ -1909,7 +1909,7 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: [''],
+  props: [],
   data: function data() {
     return {
       responce: {}
@@ -1921,12 +1921,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     get_path: function get_path() {
-      var url = "/v1/json/search/course/light";
+      var url = "https://api.ekispert.jp//v1/json/search/course/light";
       axios.get(url, {
         params: {
-          key: config('services.ekispert.token'),
+          key: "LE_XTvcvM93uAAuL",
           from: 22828,
           to: 25853
+        },
+        header: {
+          'Access-Control-Allow-Origin': '*' // 'Access-Control-Allow-Origin':  'http://localhost:4200',
+          // 'Access-Control-Allow-Headers':  'Content-Type, X-Auth-Token, Authorization, Origin',
+          // 'Access-Control-Allow-Methods':  'POST, PUT'
+
         }
       }).then(function (res) {
         console.log(res);
