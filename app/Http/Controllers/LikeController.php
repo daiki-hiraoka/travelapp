@@ -51,4 +51,5 @@ class LikeController extends Controller
         $count = $plan->likes()->count();
         return response()->json(['result' => $count], 200);
     }
+    
 }
