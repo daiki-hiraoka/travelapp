@@ -45,7 +45,7 @@
             
             <div class="image">
                 <h2>画像</h2>
-                <input type="file" name='image' value="{{ $plan->image }}">
+                <input type="file" name='plan[image]' value="{{ $plan->image }}">
             </div>
             
             <input type="submit" value="保存">

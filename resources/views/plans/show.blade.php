@@ -16,6 +16,8 @@
     </div>
 </div>
 
+<comment-component :plan_id="{{ $plan->id }}"></comment-component>
+
 <p class="edit">[<a href="/plans/{{ $plan->id }}/edit">編集</a>]</p>
 
 <form action="/plans/{{ $plan->id }}" id="form_delete" method="POST" style="display:inline">

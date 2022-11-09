@@ -31,6 +31,10 @@ class Plan extends Model
         return $this->hasMany('App\Like');
     }
     
+    public function comments() {
+        return $this->hasMany('App\Comment');
+    }
+    
     public function getPaginateByLimit(int $limit_count = 2) {
         return $this::with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
@@ -50,5 +54,9 @@ class Plan extends Model
     
     public function getLiked($user_id) {
         return $this->likes()->where('user_id', $user_id)->get();
+    }
+    
+    public function getComments($plan_id) {
+        return $this->comments()->get();
     }
 }
