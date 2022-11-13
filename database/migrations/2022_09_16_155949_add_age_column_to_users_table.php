@@ -15,8 +15,8 @@ class AddAgeColumnToUsersTable extends Migration
     {
         // userの登録のための情報を追加
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('age');
-            $table->string('sex');
+            $table->integer('age')->nullable();
+            $table->string('sex')->nullable();
             $table->string('image',100)->nullable();
             $table->string('comment',400)->nullable();
         });
