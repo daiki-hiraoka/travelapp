@@ -1,32 +1,92 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="title">
-    {{ $plan->title }}
-</h1>
-<div class="content">
-    <div class="content__plan">
-        <p class='place'>旅行先：{{ $plan->place }}</p>
-        <p class='people'>人数：{{ $plan->people }}人</p>
-        <p class='spot'>おすすめスポット：{{ $plan->spot }}</p>
-        <p class='cost'>費用：{{ $plan->cost }}円</p>
-        <p class='date'>日数：{{ $plan->date }}日</p>
-        <p class='move'>交通手段：{{ $plan->move }}</p>
-        <small>{{ $plan->user->name }}</small>
+    <div id="container">
+        
+        <div id="main">
+            
+            <article>
+            
+            <h2>{{ $plan->title }}</h2>
+            
+            <figure class="mb30 c">
+                <img src="{{ $plan->image }}" alt="写真の説明を入れます">
+            </figure>
+            
+            <table class="ta1">
+            <caption>旅行詳細</caption>
+            <tr>
+            <th>旅行先</th>
+            <td>{{ $plan->place }}</td>
+            </tr>
+            <tr>
+            <th>人数</th>
+            <td>{{ $plan->people }}人</td>
+            </tr>
+            <tr>
+            <th>おすすめスポット</th>
+            <td>{{ $plan->spot }}</td>
+            </tr>
+            <tr>
+            <th>費用</th>
+            <td>{{ $plan->cost }}円</td>
+            </tr>
+            <tr>
+            <th>日数</th>
+            <td>{{ $plan->date }}日</td>
+            </tr>
+            </table>
+            
+            </article>
+            
+            <p><a href="javascript:history.back()">&lt;&lt; 前のページに戻る</a></p>
+            
+            <p class="edit">[<a href="/plans/{{ $plan->id }}/edit">編集</a>]</p>
+            </div>
+            <!--/#main-->
+            
+            <div id="sub">
+            
+            
+            <!--PC用（801px以上端末）メニュー-->
+            <nav id="menubar">
+            <ul>
+            <li class="menu1 current"><a href="/">ホーム</a></li>
+	        <li class="menu3"><a href="/plans/create">旅行計画作成</a></li>
+	        <li class="menu4"><a href="/plans/{{ Auth::user()->id }}/likes">いいねした投稿</a></li>
+	        <li class="menu5"><a href="/profiles/{{ Auth::user()->id }}">プロフィール</a></li>
+            </ul>
+            </nav>
+            
+            </div>
+            <!--/#sub-->
+            
+            <!--小さな端末用（800px以下端末）環境でのみ表示させるブロック-->
+            
+            <div id="sh-sub">
+            
+            
+            
+            <!--小さな端末用（800px以下端末）メニュー-->
+            <nav id="menubar-s">
+            <ul>
+            <li class="menu1 current"><a href="/">ホーム</a></li>
+	        <li class="menu3"><a href="/plans/create">旅行計画作成</a></li>
+	        <li class="menu4"><a href="/plans/{{ Auth::user()->id }}/likes">いいねした投稿</a></li>
+	        <li class="menu5"><a href="/profiles/{{ Auth::user()->id }}">プロフィール</a></li>
+            </ul>
+            </nav>
+            
+        </div>
+        <!--/#sh-sub-->
+    
     </div>
-</div>
+<!--/#container-->
 
-<comment-component :plan_id="{{ $plan->id }}"></comment-component>
+<!--ページの上部に戻る「↑」ボタン-->
+<p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
 
-<p class="edit">[<a href="/plans/{{ $plan->id }}/edit">編集</a>]</p>
+<!--メニュー開閉ボタン-->
+<div id="menubar_hdr" class="close"></div>
 
-<form action="/plans/{{ $plan->id }}" id="form_delete" method="POST" style="display:inline">
-    @csrf
-    @method('DELETE')
-    <button type="button" onclick="dialogDelete()">delete</button> 
-</form>
-
-<div class="back">
-    <a href="/">戻る</a>
-</div>
 @endsection

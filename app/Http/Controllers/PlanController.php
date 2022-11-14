@@ -16,7 +16,8 @@ class PlanController extends Controller
         if($request->session()->has('search')) {
             $request->session()->forget('search');
         }
-        return view('plans/index')->with(['plans' => $plan->getPaginateByLimit()]);
+        // return view('plans/index')->with(['plans' => $plan->getPaginateByLimit()]);
+        return view('plans/index')->with(['plans' => $plan->get()]);
     }
     
     /**

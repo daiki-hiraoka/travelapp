@@ -18,9 +18,6 @@
 										<figure><img src="{{ $plan->image }}" alt="旅行写真"></figure>
 										<span>{{ $plan->title }}</span>
 									</a>
-									投稿者：<a href="/users/{{ $plan->user->id }}">{{ $plan->user->name }}</a><br>
-                
-                                    <like-component :plan="{{ $plan }}"></like-component>
 								</div>
 							@endif
 						@endforeach
@@ -85,10 +82,10 @@
 			<!--PC用（801px以上端末）メニュー-->
 			<nav id="menubar">
 			<ul>
-				<li class="menu1 current"><a href="/">ホーム</a></li>
-		        <li class="menu3"><a href="/plans/create">旅行計画作成</a></li>
-		        <li class="menu4"><a href="/plans/{{ Auth::user()->id }}/likes">いいねした投稿</a></li>
-		        <li class="menu5"><a href="/profiles/{{ Auth::user()->id }}">プロフィール</a></li>
+					<li class="menu1 current"><a href="index.html">ホーム</a></li>
+			        <li class="menu3"><a href="about.html">旅行計画作成</a></li>
+			        <li class="menu4"><a href="list.html">いいねした投稿</a></li>
+			        <li class="menu5"><a href="access.html">プロフィール</a></li>
 			</ul>
 			</nav>
 			
@@ -104,10 +101,10 @@
 			<!--小さな端末用（800px以下端末）メニュー-->
 			<nav id="menubar-s">
 			<ul>
-				<li class="menu1 current"><a href="/">ホーム</a></li>
-		        <li class="menu3"><a href="/plans/create">旅行計画作成</a></li>
-		        <li class="menu4"><a href="/plans/{{ Auth::user()->id }}/likes">いいねした投稿</a></li>
-		        <li class="menu5"><a href="/profiles/{{ Auth::user()->id }}">プロフィール</a></li>
+					<li class="menu1 current"><a href="index.html">ホーム</a></li>
+			        <li class="menu3"><a href="about.html">旅行計画作成</a></li>
+			        <li class="menu4"><a href="list.html">いいねした投稿</a></li>
+			        <li class="menu5"><a href="access.html">プロフィール</a></li>
 			</ul>
 			</nav>
 			

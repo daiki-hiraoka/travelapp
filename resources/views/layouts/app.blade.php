@@ -3,24 +3,36 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ここにサイト説明を入れます">
+    <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Title-->
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/delete.js') }}"></script>
     <script src="{{ asset('js/like.js') }}"></script> 
+    <script src="{{ asset('js/openclose.js') }}"></script>
+    <script src="{{ asset('js/fixmenu_pagetop.js') }}"></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" >
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/inview.css') }}">
+    
 </head>
-<body>
+<body class="home">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -58,29 +70,32 @@
                                 <input type="submit" value="検索" class="btn btn-info">
                             </form>
                             
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                            <a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                            <!--<li class="nav-item dropdown">-->
+                            <!--    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>-->
+                            <!--        {{ Auth::user()->name }} <span class="caret"></span>-->
+                            <!--    </a>-->
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/plans/create">旅行計画作成</a>
-                                    <a class="dropdown-item" href="/users/{{ Auth::user()->id }}">旅行計画一覧</a>
-                                    <a class="dropdown-item" href="/plans/{{ Auth::user()->id }}/likes">いいねした投稿</a>
-                                    <a class="dropdown-item">友達</a>
-                                    <a class="dropdown-item" href="/profiles/{{ Auth::user()->id }}">プロフィール</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                            <!--    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">-->
+                            <!--        <a class="dropdown-item" href="/plans/create">旅行計画作成</a>-->
+                            <!--        <a class="dropdown-item" href="/users/{{ Auth::user()->id }}">旅行計画一覧</a>-->
+                            <!--        <a class="dropdown-item" href="/plans/{{ Auth::user()->id }}/likes">いいねした投稿</a>-->
+                            <!--        <a class="dropdown-item">友達</a>-->
+                            <!--        <a class="dropdown-item" href="/profiles/{{ Auth::user()->id }}">プロフィール</a>-->
+                            <!--        <a class="dropdown-item" href="{{ route('logout') }}"-->
+                            <!--           onclick="event.preventDefault();-->
+                            <!--                         document.getElementById('logout-form').submit();">-->
+                            <!--            {{ __('Logout') }}-->
+                            <!--        </a>-->
                                     
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                            <!--        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">-->
+                            <!--            @csrf-->
+                            <!--        </form>-->
+                            <!--    </div>-->
+                            <!--</li>-->
                         @endguest
                     </ul>
                 </div>
@@ -92,5 +107,16 @@
         </main>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!--メニューの開閉処理条件設定　800px以下-->
+    <script>
+    if (OCwindowWidth() <= 800) {
+    	open_close("menubar_hdr", "menubar-s");
+    }
+    </script>
+    <!--パララックス用ファイル読み込み-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+    <script src="js/jquery.inview_set.js"></script>
+
 </body>
 </html>

@@ -23,10 +23,12 @@ Route::group(['middleware' => ['auth']],function() {
     Route::get('/plans/{plan}/comments/check', 'CommentController@getComments');
     Route::get('/plans/search', 'PlanController@search');
     Route::get('/plans/{user}/likes', 'LikeController@index');
+    // Route::get('/plans/{plan}', function(){return view('plans/item')->with(['plan' => $plan->get()]);});
     Route::get('/plans/{plan}', 'PlanController@show');//　この処理を一番最後に書かないと{plan}にあらゆる値が入ってしまいshowを表示するようになる
     Route::get('/users/{user}/followcheck', 'FollowUserController@check');
-    
     Route::get('/users/{user}', 'UserController@index');
+    Route::get('/test/index', function(){return view('test/index');});
+    Route::get('/test/list', function(){return view('test/list')->with(['plans' => $plan->get()]);});
     
     
     Route::post('/plans', 'PlanController@store');
