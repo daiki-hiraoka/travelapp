@@ -39,9 +39,10 @@
             
             </article>
             
+            <p class="edit">[<a href="/plans/{{ $plan->id }}/edit">編集</a>]</p>
+            
             <p><a href="javascript:history.back()">&lt;&lt; 前のページに戻る</a></p>
             
-            <p class="edit">[<a href="/plans/{{ $plan->id }}/edit">編集</a>]</p>
             </div>
             <!--/#main-->
             
