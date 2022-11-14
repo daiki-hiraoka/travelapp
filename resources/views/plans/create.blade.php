@@ -8,16 +8,18 @@
             <article>
             <form action="/plans" method="POST" enctype="multipart/form-data">
                 @csrf
-                <h3>タイトル</h3>
-                <input type="text" name="plan[title]" placeholder="タイトル" value = "{{ old('plan.title') }}"/>
-                <p class='title_errors' style='color:red'>{{ $errors->first('plan.title') }}</p>
-                
-                <figure class="mb30 c">
-                    <input type="file" name="image">
-                </figure>
                 
                 <table class="ta1">
                 <caption>旅行詳細</caption>
+                
+                <tr>
+                    <th>タイトル</th>
+                    <td>
+                        <input type="text" name="plan[title]" placeholder="タイトル名"  value = "{{ old('plan.title') }}"/>
+                        <p class='place_errors' style='color:red'>{{ $errors->first('plan.title') }}</p>
+                    </td>
+                </tr>
+                
                 <!--旅行先変更-->
                 <tr>
                     <th>旅行先</th>
@@ -26,6 +28,7 @@
                         <p class='place_errors' style='color:red'>{{ $errors->first('plan.place') }}</p>
                     </td>
                 </tr>
+                
                 <!--人数変更-->
                 <tr>
                     <th>人数</th>
@@ -66,6 +69,14 @@
                         <p class='move_errors' style='color:red'>{{ $errors->first('plan.move') }}</p>
                     </td>
                 </tr>
+                
+                <tr>
+                    <th>image</th>
+                    <td>
+                        <input type="file" name="image">
+                    </td>
+                </tr>
+                
                 </table>
                 
                 <button type="submit">保存</button>

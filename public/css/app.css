@@ -223,14 +223,6 @@ table {
   border-collapse: collapse;
 }
 
-caption {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  color: #6c757d;
-  text-align: left;
-  caption-side: bottom;
-}
-
 th {
   text-align: inherit;
   text-align: -webkit-match-parent;
@@ -10966,3 +10958,39 @@ a.text-dark:focus {
   }
 }
 
+
+/*フォーム全体*/
+#form1{
+position:relative;/*フォームの相対位置*/	
+max-width:270px;/*フォームのサイズ*/
+margin-bottom:15px;/*フォームの下に余白*/	 	
+}
+/*検索ボックス*/
+#sbox{
+  position: absolute;
+  left: 0;
+  top: -10px;
+  outline: 0;
+  height: 35px;
+  padding: 0 10px;
+  border-radius: 2px 0 0 2px;
+  background: #eee;
+}
+/*検索ボタン*/
+#sbtn{
+  width: 70px;
+  height: 35px;
+  position: absolute;
+  left: 170px;
+  top: -10px;
+  border-radius: 0 2px 2px 0;
+  background: #7fbfff;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+/*検索ボタンマウスオーバー時*/
+#sbtn:hover{
+  color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/ 
+}

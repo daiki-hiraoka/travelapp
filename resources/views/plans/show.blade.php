@@ -14,27 +14,34 @@
             </figure>
             
             <table class="ta1">
+                
             <caption>旅行詳細</caption>
+            
             <tr>
-            <th>旅行先</th>
-            <td>{{ $plan->place }}</td>
+                <th>旅行先</th>
+                <td>{{ $plan->place }}</td>
             </tr>
+            
             <tr>
-            <th>人数</th>
-            <td>{{ $plan->people }}人</td>
+                <th>人数</th>
+                <td>{{ $plan->people }}人</td>
             </tr>
+            
             <tr>
-            <th>おすすめスポット</th>
-            <td>{{ $plan->spot }}</td>
+                <th>おすすめスポット</th>
+                <td>{{ $plan->spot }}</td>
             </tr>
+            
             <tr>
-            <th>費用</th>
-            <td>{{ $plan->cost }}円</td>
+                <th>費用</th>
+                <td>{{ $plan->cost }}円</td>
             </tr>
+            
             <tr>
-            <th>日数</th>
-            <td>{{ $plan->date }}日</td>
+                <th>日数</th>
+                <td>{{ $plan->date }}日</td>
             </tr>
+            
             </table>
             
             </article>

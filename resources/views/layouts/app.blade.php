@@ -45,9 +45,18 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                    <div class="navbar-nav mr-auto">
+                        <!--検索機能-->
+                        <form id="form1" action="/plans/search" method="GET">
+                            <input id="sbox" id="s" type="search" name="search"  value="{{ Session::get('search') }}" placeholder="キーワードを入力" aria-label="検索...">
+                            <input id="sbtn" type="submit" value="検索"/>
+                        </form>
+                        
+                        <!--<form id="form1">-->
+                        <!--    <input id="sbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />-->
+                        <!--    <input id="sbtn" type="submit" value="検索" />-->
+                        <!--</form>-->
+                    </div>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -62,40 +71,11 @@
                                 </li>
                             @endif
                         @else
-                            <!--検索機能-->
-                            <form class="search" action="/plans/search" method="GET">
-                                <div class="form-group">
-                                    <input type="search" class="form-control" name="search"  value="{{ Session::get('search') }}" placeholder="キーワードを入力" aria-label="検索...">
-                                </div>
-                                <input type="submit" value="検索" class="btn btn-info">
-                            </form>
                             
                             <a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-                            <!--<li class="nav-item dropdown">-->
-                            <!--    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>-->
-                            <!--        {{ Auth::user()->name }} <span class="caret"></span>-->
-                            <!--    </a>-->
-
-                            <!--    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">-->
-                            <!--        <a class="dropdown-item" href="/plans/create">旅行計画作成</a>-->
-                            <!--        <a class="dropdown-item" href="/users/{{ Auth::user()->id }}">旅行計画一覧</a>-->
-                            <!--        <a class="dropdown-item" href="/plans/{{ Auth::user()->id }}/likes">いいねした投稿</a>-->
-                            <!--        <a class="dropdown-item">友達</a>-->
-                            <!--        <a class="dropdown-item" href="/profiles/{{ Auth::user()->id }}">プロフィール</a>-->
-                            <!--        <a class="dropdown-item" href="{{ route('logout') }}"-->
-                            <!--           onclick="event.preventDefault();-->
-                            <!--                         document.getElementById('logout-form').submit();">-->
-                            <!--            {{ __('Logout') }}-->
-                            <!--        </a>-->
-                                    
-
-                            <!--        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">-->
-                            <!--            @csrf-->
-                            <!--        </form>-->
-                            <!--    </div>-->
-                            <!--</li>-->
+                            
                         @endguest
                     </ul>
                 </div>
