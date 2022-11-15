@@ -4,7 +4,6 @@
 
 <div id="container">
 	
-	<div id="bgimg-shopping" class="bgimg">背景イメージ</div>
 		
 		<div id="main">
 				
