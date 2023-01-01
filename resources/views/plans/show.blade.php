@@ -61,7 +61,7 @@
             <ul>
             <li class="menu1 current"><a href="/">ホーム</a></li>
 	        <li class="menu3"><a href="/plans/create">旅行計画作成</a></li>
-	        <li class="menu4"><a href="/plans/{{ Auth::user()->id }}/likes">いいねした投稿</a></li>
+	        <li class="menu4"><a href="/users/{{ Auth::user()->id }}/likes">いいねした投稿</a></li>
 	        <li class="menu5"><a href="/profiles/{{ Auth::user()->id }}">プロフィール</a></li>
             </ul>
             </nav>
@@ -80,7 +80,7 @@
             <ul>
             <li class="menu1 current"><a href="/">ホーム</a></li>
 	        <li class="menu3"><a href="/plans/create">旅行計画作成</a></li>
-	        <li class="menu4"><a href="/plans/{{ Auth::user()->id }}/likes">いいねした投稿</a></li>
+	        <li class="menu4"><a href="/users/{{ Auth::user()->id }}/likes">いいねした投稿</a></li>
 	        <li class="menu5"><a href="/profiles/{{ Auth::user()->id }}">プロフィール</a></li>
             </ul>
             </nav>
