@@ -20,18 +20,31 @@
     RewriteRule ^ index.php [L]
     
     # gzip対応
+    
+    # ブラウザからgzip圧縮リクエストがあるか確認する
     RewriteCond %{HTTP:Accept-Encoding} gzip
+    
+    # ファイル名に「.gz」が含まれたファイルがあるか確認する
     RewriteCond %{REQUEST_FILENAME}\.gz -s
-    RewriteRule ^(.+) $1.gz
     
-    <FilesMatch "\.css\.gz$">
-        ForceType text/css
-        AddEncoding x-gzip .gz
-    </FilesMatch>
-    <FilesMatch "\.js\.gz$">
-        ForceType application/x-javascript
-        AddEncoding x-gzip .gz
-    </FilesMatch>
+    #要求されているファイルの拡張子を取得
+    RewriteCond %{REQUEST_URI} (\.js|\.css)$
     
-    Header append Vary Accept-Encoding env=!dont-vary
+    # リクエストファイルからgzip圧縮ファイルに置換する
+    RewriteRule .* %{REQUEST_URI}.gz [L]
+    # RewriteRule ^(.+) $1.gz
+    
+    # Header append Vary Accept-Encoding env=!dont-vary
 </IfModule>
+
+# CSSファイルの圧縮版に変更
+<FilesMatch "\.css\.gz$">
+    ForceType text/css
+    AddEncoding x-gzip .gz
+</FilesMatch>
+
+# jsファイルの圧縮版に変更
+<FilesMatch "\.js\.gz$">
+    ForceType application/x-javascript
+    AddEncoding x-gzip .gz
+</FilesMatch>
