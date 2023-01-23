@@ -1,6 +1,5 @@
 const mix = require('laravel-mix');
-const CompressionPlugin = require('compression-webpack-plugin');
-
+const CompressionPlugin = require('compression-webpack-plugin');//追加
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -12,21 +11,22 @@ const CompressionPlugin = require('compression-webpack-plugin');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css').vue()
-   // app.js作成時にgzファイルを作成する
-  .webpackConfig({
-      plugins: [
-          new CompressionPlugin({
-              filename: '[path].gz[query]',
-              algorithm: 'gzip',
-              test: /\.js$|\.css$|\.html$|\.svg$/,
-              threshold: 10240,
-              minRatio: 0.8,
+
+mix.js('resources/js/app.js', 'public/js').vue()
+   .sass('resources/sass/app.scss', 'public/css')
+   //追加
+   .webpackConfig({
+    plugins: [
+      new CompressionPlugin({
+        // filename: '[path].gz[query]',
+        // algorithm: 'gzip',
+        test: /\.js$|\.css$|\.html$|\.svg$/,
+        // threshold: 10240,
+        // minRatio: 0.8,
       })
     ]
   });
 
-if (mix.inProduction()) {                                                                                                                                                                                          
-    mix.version();                                                                                                                                                                                                 
-}    
+if (mix.inProduction()) {
+    mix.version();
+}
