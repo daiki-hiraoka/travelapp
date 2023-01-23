@@ -6,9 +6,10 @@
 
 require('./bootstrap');
 
-
-window.Vue = require('vue');
-window.axios = require('axios');
+import Vue from 'vue'
+import axios from 'axios'
+// window.Vue = require('vue');
+// window.axios = require('axios');
 
 /**
  * The following block of code may be used to automatically register your
