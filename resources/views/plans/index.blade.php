@@ -24,54 +24,6 @@
 							@endif
 						@endforeach
 					</div>	
-					<!--<div class="list">-->
-					<!--<a href="item.html">-->
-					<!--<figure><img src="images/sample1_mini.jpg" alt="商品タイトル"></figure>-->
-					<!--<span>商品タイトル</span>-->
-					<!--</a>-->
-					<!--</div>-->
-				
-					<!--<div class="list">-->
-					<!--<a href="item.html">-->
-					<!--<figure><img src="images/sample2_mini.jpg" alt="商品タイトル"></figure>-->
-					<!--</a>-->
-					<!--<span>商品タイトル</span>-->
-					<!--</div>-->
-				
-					<!--<div class="list">-->
-					<!--<a href="item.html">-->
-					<!--<figure><img src="images/sample3_mini.jpg" alt="商品タイトル"></figure>-->
-					<!--</a>-->
-					<!--<span>商品タイトル</span>-->
-					<!--</div>-->
-				
-					<!--<div class="list">-->
-					<!--<a href="item.html">-->
-					<!--<figure><img src="images/sample4_mini.jpg" alt="商品タイトル"></figure>-->
-					<!--</a>-->
-					<!--<span>商品タイトル</span>-->
-					<!--</div>-->
-				
-					<!--<div class="list">-->
-					<!--<figure><img src="images/sample5_mini.jpg" alt="商品タイトル"></figure>-->
-					<!--<span>商品タイトル</span>-->
-					<!--</div>-->
-				
-					<!--<div class="list">-->
-					<!--<figure><img src="images/sample6_mini.jpg" alt="商品タイトル"></figure>-->
-					<!--<span>商品タイトル</span>-->
-					<!--</div>-->
-				
-					<!--<div class="list">-->
-					<!--<figure><img src="images/sample7_mini.jpg" alt="商品タイトル"></figure>-->
-					<!--<span>商品タイトル</span>-->
-					<!--</div>-->
-				
-					<!--<div class="list">-->
-					<!--<figure><img src="images/sample8_mini.jpg" alt="商品タイトル"></figure>-->
-					<!--<span>商品タイトル</span>-->
-					<!--</div>-->
-					
 				</section>
 				
 			</div>

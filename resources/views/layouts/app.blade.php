@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" >
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}" >
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/inview.css') }}">
     
@@ -86,7 +86,7 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     <!--メニューの開閉処理条件設定　800px以下-->
     <script>
     if (OCwindowWidth() <= 800) {
