@@ -5,49 +5,60 @@
         
         <div id="main">
             
+            <!--旅行計画詳細表示-->
             <article>
-            
-            <h2>{{ $plan->title }}</h2>
-            
-            <figure class="mb30 c">
-                <img src="{{ $plan->image }}" alt="写真の説明を入れます">
-            </figure>
-            
-            <table class="ta1">
                 
-            <caption>旅行詳細</caption>
-            
-            <tr>
-                <th>旅行先</th>
-                <td>{{ $plan->place }}</td>
-            </tr>
-            
-            <tr>
-                <th>人数</th>
-                <td>{{ $plan->people }}人</td>
-            </tr>
-            
-            <tr>
-                <th>おすすめスポット</th>
-                <td>{{ $plan->spot }}</td>
-            </tr>
-            
-            <tr>
-                <th>費用</th>
-                <td>{{ $plan->cost }}円</td>
-            </tr>
-            
-            <tr>
-                <th>日数</th>
-                <td>{{ $plan->date }}日</td>
-            </tr>
-            
-            </table>
-            
+                <h2>{{ $plan->title }}</h2>
+                
+                <figure class="mb30 c">
+                    <img src="{{ $plan->image }}" alt="写真の説明を入れます">
+                </figure>
+                
+                <table class="ta1">
+                    
+                <caption>旅行詳細</caption>
+                
+                <tr>
+                    <th>旅行先</th>
+                    <td>{{ $plan->place }}</td>
+                </tr>
+                
+                <tr>
+                    <th>人数</th>
+                    <td>{{ $plan->people }}人</td>
+                </tr>
+                
+                <tr>
+                    <th>おすすめスポット</th>
+                    <td>{{ $plan->spot }}</td>
+                </tr>
+                
+                <tr>
+                    <th>費用</th>
+                    <td>{{ $plan->cost }}円</td>
+                </tr>
+                
+                <tr>
+                    <th>日数</th>
+                    <td>{{ $plan->date }}日</td>
+                </tr>
+                
+                </table>
+                
             </article>
             
-            <p class="edit">[<a href="/plans/{{ $plan->id }}/edit">編集</a>]</p>
             
+            <!--編集ボタン-->
+            <button type="button" onclick="location.href='/plans/{{ $plan->id }}/edit'">編集</button>
+            
+            <!--削除ボタン処理-->
+            <form action="/plans/{{ $plan->id }}" id="form_delete" method="POST" style="display:inline">
+                @csrf
+                @method('DELETE')
+                <button type="button" onclick="dialogDelete()">削除</button> 
+            </form>
+            
+            <!--前のページに戻る-->
             <p><a href="javascript:history.back()">&lt;&lt; 前のページに戻る</a></p>
             
             </div>
@@ -72,9 +83,7 @@
             <!--小さな端末用（800px以下端末）環境でのみ表示させるブロック-->
             
             <div id="sh-sub">
-            
-            
-            
+
             <!--小さな端末用（800px以下端末）メニュー-->
             <nav id="menubar-s">
             <ul>
