@@ -47,16 +47,18 @@
                 
             </article>
             
-            
-            <!--編集ボタン-->
-            <button type="button" onclick="location.href='/plans/{{ $plan->id }}/edit'">編集</button>
-            
-            <!--削除ボタン処理-->
-            <form action="/plans/{{ $plan->id }}" id="form_delete" method="POST" style="display:inline">
-                @csrf
-                @method('DELETE')
-                <button type="button" onclick="dialogDelete()">削除</button> 
+            <!--ログインアカウントによる機能制限-->
+            @if($plan->user->id === Auth::user()->id)
+                <!--編集ボタン-->
+                <button type="button" onclick="location.href='/plans/{{ $plan->id }}/edit'">編集</button>
+                
+                <!--削除ボタン処理-->
+                <form action="/plans/{{ $plan->id }}" id="form_delete" method="POST" style="display:inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="dialogDelete()">削除</button> 
             </form>
+            @endif
             
             <!--前のページに戻る-->
             <p><a href="javascript:history.back()">&lt;&lt; 前のページに戻る</a></p>
