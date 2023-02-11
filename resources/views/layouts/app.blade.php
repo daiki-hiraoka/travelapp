@@ -13,8 +13,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Title-->
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>{{ config('app.name', '旅行計画アプリ') }}</title>
+    
     <!-- Scripts -->
     <script src="{{ asset('js/delete.js') }}"></script>
     <script src="{{ asset('js/like.js') }}"></script> 
